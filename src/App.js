@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
+import './components/Todo.css'
 
 const tasks = [
   {
@@ -56,14 +57,16 @@ class App extends React.Component {
   clearCompleted = e => {
     e.preventDefault();
     this.setState({
-      tasks: this.state.tasks.filter(task => task.completed)
+      tasks: this.state.tasks.filter(task => task.completed === false)
     })
   }
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className = 'App'>
+        <div className = 'header'>
+          <h1>Welcome to your Todo App!</h1>
+        </div>
         <TodoForm 
           addTask={this.addTask} 
           clearCompleted = {this.clearCompleted}
